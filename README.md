@@ -55,6 +55,53 @@ The API handles various error scenarios and returns appropriate error messages a
 
   ![Dublicate Submission Error](https://github.com/cs-mshr/BrainOp/assets/95642555/0df89862-aa0d-47fe-a358-83473f0c7b37)
 
+## Database Schema-
+Table: PsychometricData
+
+| Column Name    | Data Type | Description                           |
+| -------------- | --------- | ------------------------------------- |
+| id             | Integer   | Primary key of the form submission    |
+| name           | String    | Name of the candidate                  |
+| email          | String    | Email address of the candidate         |
+| fileBase64     | Text      | Base64 representation of the file      |
+| textField      | String    | Text field value from the form         |
+| mcqQuestions   | Text      | JSON representation of MCQ questions   |
+
+
+In this schema, the `PsychometricData` table represents the form submissions. Each row in the table corresponds to a single submission and contains the following information:
+
+- `id`: Unique identifier for each form submission (primary key).
+- `name`: Name of the candidate who filled out the form.
+- `email`: Email address of the candidate.
+- `fileBase64`: The file attachment from the form, stored as a base64-encoded string.
+- `textField`: The value of a text field from the form.
+- `mcqQuestions`: JSON representation of multiple-choice questions and answers.
+- 
+![sql1](https://github.com/cs-mshr/BrainOp/assets/95642555/2e4a7b08-1298-422c-94f9-7573237de1c0)
+
+Table: mcq_question
+
+| Column Name | Data Type | Description                         |
+| ----------- | --------- | ----------------------------------- |
+| id          | Integer   | Primary key of the MCQ question     |
+| question    | String    | The question text                   |
+| option1     | String    | Option 1 for the multiple-choice question |
+| option2     | String    | Option 2 for the multiple-choice question |
+| option3     | String    | Option 3 for the multiple-choice question |
+| option4     | String    | Option 4 for the multiple-choice question |
+| option5     | String    | Option 5 for the multiple-choice question |
+
+In this schema, the `mcq_question` table represents the multiple-choice questions. Each row in the table corresponds to a single question and contains the following information:
+
+- `id`: Unique identifier for each question (primary key).
+- `question`: The text of the multiple-choice question.
+- `option1`: Option 1 for the multiple-choice question.
+- `option2`: Option 2 for the multiple-choice question.
+- `option3`: Option 3 for the multiple-choice question.
+- `option4`: Option 4 for the multiple-choice question.
+- `option5`: Option 5 for the multiple-choice question.
+
+![sql2](https://github.com/cs-mshr/BrainOp/assets/95642555/38a3d6c2-216d-4e16-af3b-b35fee6eac62)
 
 ## Setup and Execution
 
